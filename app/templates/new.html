@@ -1,45 +1,34 @@
 {% extends "layout.html" %}
 {% block content %}
-<form action="/cities/new" method="POST">
+<form action="/people/new" method="POST">
     <div class="row">
         <div class="col">
-            <label for="fldName">City Name</label>
-            <input id="fldName" type="text" class="form-control" placeholder="City Name" name="fldName">
+            <label for="Sex">Sex</label>
+            <input id="Sex" type="text" class="form-control" placeholder="Sex" name="Sex">
         </div>
         <div class="col">
-            <label for="fldAbbreviation">City Abbreviation</label>
-            <input id="fldAbbreviation" t ype="text" class="form-control" placeholder="City Abbreviation"
-                   name="fldAbbreviation">
+            <label for="Weight_Sep">Weight_Sep</label>
+            <input id="Weight_Sep" type="text" class="form-control" placeholder="Weight_Sep"
+                   name="Weight_Sep">
         </div>
         <div class="col">
-            <label for="fldCountry">City Country</label>
-            <input id="fldCountry" type="text" class="form-control" placeholder="City Country" name="fldCountry">
+            <label for="Weight_Apr">Weight_Apr</label>
+            <input id="Weight_Apr" type="text" class="form-control" placeholder="Weight_Apr" name="Weight_Apr">
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            <label for="fldLat">City Latitude</label>
-            <input id="fldLat" type="text" class="form-control" placeholder="City Latitude" name="fldLat">
+            <label for="BMI_Sep">BMI_Sep</label>
+            <input id="BMI_Sep" type="text" class="form-control" placeholder="BMI_Sep" name="BMI_Sep">
         </div>
         <div class="col">
-            <label for="fldlong">City Longitude</label>
-            <input id="fldlong" type="text" class="form-control" placeholder="City Longitude" name="fldLong">
+            <label for="BMI_Apr">BMI_Apr</label>
+            <input id="BMI_Apr" type="text" class="form-control" placeholder="BMI_Apr" name="BMI_Apr">
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <label for="fldCapitalStatus">Capital Status</label>
 
-            <input id="fldCapitalStatus" type="text" class="form-control" placeholder="Capital Status "
-                   name="fldCapitalStatus">
-        </div>
-        <div class="col">
-            <label for="fldPopulation">City Population</label>
-            <input id="fldPopulation" type="text" class="form-control" placeholder="Population" name="fldPopulation">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-success">Create</button>
+    <button type="submit" class="btn btn-success">Success</button>
 
 </form>
 
