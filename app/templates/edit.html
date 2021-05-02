@@ -1,44 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
-<form action="/edit/{{city.id}}" method="post">
+<form action="/edit/{{ppl.id}}" method="post" xmlns="http://www.w3.org/1999/html">
     <div class="row">
         <div class="col">
-            <label for="fldName">City Name</label>
-            <input id="fldName" type="text" class="form-control" placeholder="City Name" name="fldName" value="{{city.fldName}}">
+            <label for="Sex">Sex</label>
+            <input id="Sex" type="text" class="form-control" placeholder="Sex" name="Sex" value="{{ppl.Sex}}">
         </div>
         <div class="col">
-            <label for="fldAbbreviation">City Abbreviation</label>
-            <input id="fldAbbreviation" type="text" class="form-control" placeholder="City Abbreviation"
-                   name="fldAbbreviation" value="{{city.fldAbbreviation}}">
+            <label for="Weight_Sep">Weight_Sep</label>
+            <input id="Weight_Sep" type="text" class="form-control" placeholder="Weight_Sep"
+                   name="Weight_Sep" value="{{ppl.Weight_Sep}}">
         </div>
         <div class="col">
-            <label for="fldCountry">City Country</label>
-            <input id="fldCountry" type="text" class="form-control" placeholder="City Country" name="fldCountry" value="{{city.fldCountry}}">
+            <label for="Weight_Apr">Weight_Apr</label>
+            <input id="Weight_Apr" type="text" class="form-control" placeholder="Weight_Apr" name="Weight_Apr" value="{{ppl.Weight_Apr}}">
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            <label for="fldLat">City Latitude</label>
-            <input id="fldLat" type="text" class="form-control" placeholder="City Latitude" name="fldLat" value="{{city.fldLat}}">
+            <label for="BMI_Sep">BMI_Sep</label>
+            <input id="BMI_Sep" type="text" class="form-control" placeholder="BMI_Sep" name="BMI_Sep" value="{{ppl.BMI_Sep}}">
         </div>
         <div class="col">
-            <label for="fldlong">City Longitude</label>
-            <input id="fldlong" type="text" class="form-control" placeholder="City Longitude" name="fldLong" value="{{city.fldLong}}">
+            <label for="BMI_Apr">BMI_Apr</label>
+            <input id="BMI_Apr" type="text" class="form-control" placeholder="BMI_Apr" name="BMI_Apr" value="{{ppl.BMI_Apr}}">
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <label for="fldCapitalStatus">Capital Status</label>
-
-            <input id="fldCapitalStatus" type="text" class="form-control" placeholder="Capital Status"
-                   name="fldCapitalStatus" value="{{city.fldCapitalStatus}}">
-        </div>
-        <div class="col">
-            <label for="fldPopulation">City Population</label>
-            <input id="fldPopulation" type="text" class="form-control" placeholder="Population" name="fldPopulation" value="{{city.fldPopulation}}">
-        </div>
-    </div>
+    </br>
     <button type="submit" class="btn btn-success">Save</button>
 
 </form>
