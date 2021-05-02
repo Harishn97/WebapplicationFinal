@@ -36,7 +36,7 @@ def record_view(ppl_id):
 @app.route('/edit/<int:ppl_id>', methods=['GET'])
 def form_edit_get(ppl_id):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM freshman_kgs WHERE id=%s', city_id)
+    cursor.execute('SELECT * FROM freshman_kgs WHERE id=%s', ppl_id)
     result = cursor.fetchall()
     return render_template('edit.html', title='Edit Form', people=result[0])
 
@@ -117,7 +117,7 @@ def api_add() -> str:
     cursor = mysql.get_db().cursor()
     inputData = (content['Sex'], content['Weight_Sep'], content['Weight_Apr'],
                  content['BMI_Sep'], content['BMI_Apr'], request.form.get('fldPopulation'))
-    sql_insert_query = """INSERT INTO freshman_kgs (Sex,Weight_Sep,Weight_Apr,BMI_Sep,BMI_Apr) VALUES (%s, %s,%s, %s,%s,) """
+    sql_insert_query = """INSERT INTO freshman_kgs (Sex,Weight_Sep,Weight_Apr,BMI_Sep,BMI_Apr) VALUES (%s, %s,%s, %s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
