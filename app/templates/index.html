@@ -3,25 +3,23 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">City Name</th>
-        <th scope="col">Latitude</th>
-        <th scope="col">Longitude</th>
-        <th scope="col">Country</th>
-        <th scope="col">Abbreviation</th>
-        <th scope="col">Capital Status</th>
-        <th scope="col">Population</th>
+        <th scope="col">ID</th>
+        <th scope="col">Sex</th>
+        <th scope="col">Weight_Sep</th>
+        <th scope="col">Weight_Apr</th>
+        <th scope="col">BMI_Sep</th>
+        <th scope="col">BMI_Apr</th>
     </tr>
     </thead>
     <tbody>
-    {% for city in cities %}
+    {% for ppl in people %}
     <tr>
-        <td><a href="view/{{city.id}}">{{ city.fldName }}</a></td>
-        <td>{{ city.fldLat }}</td>
-        <td>{{ city.fldLong }}</td>
-        <td>{{ city.fldCountry }}</td>
-        <td>{{ city.fldAbbreviation }}</td>
-        <td>{{ city.fldCapitalStatus }}</td>
-        <td>{{ city.fldPopulation }}</td>
+        <td><a href="view/{{ppl.id}}">{{ ppl.id }}</a></td>
+        <td>{{ ppl.Sex }}</td>
+        <td>{{ ppl.Weight_Sep }}</td>
+        <td>{{ ppl.Weight_Apr }}</td>
+        <td>{{ ppl.BMI_Sep }}</td>
+        <td>{{ ppl.BMI_Apr }}</td>
     </tr>
     {% endfor %}
     </tbody>
