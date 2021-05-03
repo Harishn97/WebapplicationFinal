@@ -12,10 +12,10 @@
         <li class="list-group-item">BMI_Apr - {{ ppl.BMI_Apr }}</li>
     </ul>
     <div class="card-body">
-        <a href="/edit/{{ppl.id}}" class="card-link btn btn-primary">edit</a>
+        <a href="/edit/{{ ppl.id }}" class="card-link btn btn-primary">edit</a>
     </div>
 </div>
-<form action="/delete/{{ppl.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+<form action="/delete/{{ ppl.id }}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
 
 
 {% endblock %}
