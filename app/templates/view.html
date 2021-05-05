@@ -1,21 +1,21 @@
+
 {% extends "layout.html" %}
 {% block content %}
-
 <div class="card" class="m-5 p-2">
-    <h5 class="card-title"> &nbsp;{{ ppl.id }} </h5>
+    <h5 class="card-title">{{ ppl.id }} - {{ ppl.id }}</h5>
 
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Sex - {{ ppl.Sex }}</li>
-        <li class="list-group-item">Weight_Sep - {{ ppl.Weight_Sep }}</li>
-        <li class="list-group-item">Weight_Apr - {{ ppl.Weight_Apr }}</li>
-        <li class="list-group-item">BMI_Sep - {{ ppl.BMI_Sep }}</li>
-        <li class="list-group-item">BMI_Apr - {{ ppl.BMI_Apr }}</li>
+        <li class="list-group-item">Sex: {{ ppl.Sex }}</li>
+        <li class="list-group-item">Weight_Sep: {{ ppl.Weight_Sep }}</li>
+        <li class="list-group-item">Weight_Apr: {{ ppl.Weight_Apr }}</li>
+        <li class="list-group-item">BMI_Sep: {{ ppl.BMI_Sep }}</li>
+        <li class="list-group-item">BMI_Apr: {{ ppl.BMI_Apr }}</li>
     </ul>
     <div class="card-body">
-        <a href="/edit/{{ ppl.id }}" class="card-link btn btn-primary">edit</a>
+        <a href="/edit/{{ppl.id}}" class="card-link btn btn-primary">edit</a>
     </div>
 </div>
-<form action="/delete/{{ ppl.id }}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+<form action="/delete/{{ppl.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
 
 
 {% endblock %}

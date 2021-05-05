@@ -30,7 +30,7 @@ def record_view(ppl_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM freshman_kgs WHERE id=%s', ppl_id)
     result = cursor.fetchall()
-    return render_template('view.html', title='View Form', people=result[0])
+    return render_template('view.html', title='View Form', people=result[0], ppl=ppl_id)
 
 
 @app.route('/edit/<int:ppl_id>', methods=['GET'])
