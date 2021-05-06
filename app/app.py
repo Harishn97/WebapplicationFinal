@@ -30,7 +30,7 @@ def record_view(ppl_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM freshman_kgs WHERE id=%s', ppl_id)
     result = cursor.fetchall()
-    return render_template('view.html', title='View Form', people=result[0], ppl=ppl_id)
+    return render_template('view.html', title='View Form', ppl=result[0])
 
 
 @app.route('/edit/<int:ppl_id>', methods=['GET'])
@@ -38,16 +38,17 @@ def form_edit_get(ppl_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM freshman_kgs WHERE id=%s', ppl_id)
     result = cursor.fetchall()
-    return render_template('edit.html', title='Edit Form', people=result[0])
+    return render_template('edit.html', title='Edit Form', ppl=result[0])
 
 
 @app.route('/edit/<int:ppl_id>', methods=['POST'])
 def form_update_post(ppl_id):
     cursor = mysql.get_db().cursor()
-    inputData = (request.form.get('Sex'), request.form.get('Weight_Sep'), request.form.get('Weight_Apr'),
-                 request.form.get('BMI_Sep'), request.form.get('BMI_Apr'), ppl_id)
-    sql_update_query = """UPDATE freshman_kgs t SET t.Sex = %s, t.Weight_Sep = %s, t.Weight_Apr = %s, t.BMI_Sep = 
-        %s, t.BMI_Apr = %s WHERE t.id = %s """
+    inputData = (request.form.get('Sex'), request.form.get('Weight_Sep'),
+                 request.form.get('Weight_Apr'), request.form.get('BMI_Sep'),
+                 request.form.get('BMI_Apr'), ppl_id)
+    sql_update_query = """UPDATE freshman_kgs t SET t.Sex = %s, t.Weight_Sep = %s, t.Weight_Apr = 
+    %s, t.BMI_Sep = %s, t.BMI_Apr = %s WHERE t.id = %s """
     cursor.execute(sql_update_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -62,7 +63,7 @@ def form_insert_post():
     cursor = mysql.get_db().cursor()
     inputData = (request.form.get('Sex'), request.form.get('Weight_Sep'), request.form.get('Weight_Apr'),
                  request.form.get('BMI_Sep'), request.form.get('BMI_Apr'))
-    sql_insert_query = """INSERT INTO freshman_kgs (Sex,Weight_Sep,Weight_Apr,BMI_Sep,BMI_Apr) VALUES (%s, %s,%s, %s,%s) """
+    sql_insert_query = """INSERT INTO freshman_kgs (Sex,Weight_Sep,Weight_Apr,BMI_Sep,BMI_Apr) VALUES (%s,%s,%s,%s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -116,8 +117,8 @@ def api_add() -> str:
 
     cursor = mysql.get_db().cursor()
     inputData = (content['Sex'], content['Weight_Sep'], content['Weight_Apr'],
-                 content['BMI_Sep'], content['BMI_Apr'], request.form.get('fldPopulation'))
-    sql_insert_query = """INSERT INTO freshman_kgs (Sex,Weight_Sep,Weight_Apr,BMI_Sep,BMI_Apr) VALUES (%s, %s,%s, %s,%s) """
+                 content['BMI_Sep'], request.form.get('BMI_Apr'))
+    sql_insert_query = """INSERT INTO freshman_kgs (Sex,Weight_Sep,Weight_Apr,BMI_Sep,BMI_Apr) VALUES (%s,%s,%s,%s,%s) """
     cursor.execute(sql_insert_query, inputData)
     mysql.get_db().commit()
     resp = Response(status=201, mimetype='application/json')
